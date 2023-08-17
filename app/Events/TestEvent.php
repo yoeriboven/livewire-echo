@@ -14,6 +14,11 @@ class TestEvent implements ShouldBroadcast
 {
     use Dispatchable;
 
+    public function __construct(
+        public string $content
+    ) {
+    }
+
     public function broadcastOn()
     {
         return new Channel('test-channel');

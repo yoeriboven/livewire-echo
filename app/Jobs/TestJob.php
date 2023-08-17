@@ -13,6 +13,6 @@ class TestJob implements ShouldQueue
 
     public function handle(): void
     {
-        TestEvent::dispatch();
+        TestEvent::dispatch('the content');
     }
 }

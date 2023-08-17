@@ -9,6 +9,7 @@ use Livewire\Attributes\On;
 class TestComponent extends Component
 {
     public bool $hasReceivedEvent = false;
+    public string $content = 'no content received yet';
 
     public function getListeners()
     {
@@ -18,8 +19,9 @@ class TestComponent extends Component
     }
 
     // #[On('echo:test-channel,TestEvent')]
-    public function receivedEvent()
+    public function receivedEvent($event)
     {
+        $this->content = $event['content'];
         $this->hasReceivedEvent = true;
     }
 
